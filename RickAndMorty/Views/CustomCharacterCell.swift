@@ -21,7 +21,7 @@ class CustomCharacterCell: UITableViewCell {
   // MARK: - Public methods
   func configureCell(with result: Result?) {
     characterTextLabel.text = result?.name
-    self.imageLabel.image = nil
+    self.imageLabel.image = #imageLiteral(resourceName: "defaultImage")
     
     DispatchQueue.global().async {
       guard let stringURL = result?.image else { return }

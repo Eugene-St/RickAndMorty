@@ -7,7 +7,7 @@
 //
 
 protocol PropertyNames {
-    func propertyNames() -> [String]
+  func propertyNames() -> [String]
 }
 
 struct Character: Decodable {
@@ -24,7 +24,6 @@ struct Result: Comparable, Decodable, PropertyNames {
     lhs.name < rhs.name
   }
   
-//  let id: Int
   let name: String
   let status: String
   let species: String
@@ -32,7 +31,6 @@ struct Result: Comparable, Decodable, PropertyNames {
   let origin: Origin
   let location: Location
   let image: String
-
 }
 
 struct Origin: Decodable {
@@ -43,9 +41,8 @@ struct Location: Decodable {
   let name: String
 }
 
-extension PropertyNames
-{
-    func propertyNames() -> [String] {
-      Mirror(reflecting: self).children.compactMap { $0.label }
-    }
+extension PropertyNames {
+  func propertyNames() -> [String] {
+    Mirror(reflecting: self).children.compactMap { $0.label }
+  }
 }

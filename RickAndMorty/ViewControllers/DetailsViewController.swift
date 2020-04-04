@@ -35,27 +35,17 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath)
     
-    switch indexPath.row {
-    case 0 : cell.textLabel?.text = "Name - \(character.name)"
-    case 1:  cell.textLabel?.text = "Status - \(character.status)"
-    case 2:  cell.textLabel?.text = "Species - \(character.species)"
-    case 3:  cell.textLabel?.text = "Gender - \(character.gender)"
-    case 4:  cell.textLabel?.text = "Origin - \(character.origin.name)"
-    case 5:  cell.textLabel?.text = "Location - \(character.location.name)"
-    default: cell.textLabel?.text = ""
-    }
+    let property = character.propertyNames()[indexPath.row]
     
-    /*
-    switch character.propertyNames()[indexPath.row] {
-    case "name" : cell.textLabel?.text = "Name - \(character.name)"
-    case "status": cell.textLabel?.text = "Status - \(character.status)"
-    case "species": cell.textLabel?.text = "Species - \(character.species)"
-    case "gender": cell.textLabel?.text = "Species - \(character.gender)"
-    case "origin": cell.textLabel?.text = "Origin - \(character.origin.name)"
+    switch property {
+    case "name"    : cell.textLabel?.text = "Name - \(character.name)"
+    case "status"  : cell.textLabel?.text = "Status - \(character.status)"
+    case "species" : cell.textLabel?.text = "Species - \(character.species)"
+    case "gender"  : cell.textLabel?.text = "Gender - \(character.gender)"
+    case "origin"  : cell.textLabel?.text = "Origin - \(character.origin.name)"
     case "location": cell.textLabel?.text = "Location - \(character.location.name)"
     default: cell.textLabel?.text = ""
     }
-    */
     
     return cell
   }

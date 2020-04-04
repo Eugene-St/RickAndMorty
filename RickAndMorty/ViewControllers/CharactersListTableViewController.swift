@@ -43,15 +43,13 @@ class CharactersListTableViewController: UITableViewController {
   }
   
   // MARK: - IBactions
-  // Logic to sort items in asscending/descending order
+  /// Sort items in asscending/descending order
   @IBAction func sortItems() {
     if ascendingSorting {
       character?.results.sort(by: >)
-//      sortLabelButton.image = UIImage(systemName: "arrow.up")
       ascendingSorting.toggle()
     } else {
       character?.results.sort(by: <)
-//      sortLabelButton.image = UIImage(systemName: "arrow.down")
       ascendingSorting.toggle()
     }
     tableView.reloadData()
