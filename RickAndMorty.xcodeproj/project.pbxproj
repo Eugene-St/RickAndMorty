@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		583C164424365FE60005A8EF /* CustomCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C164324365FE60005A8EF /* CustomCharacterCell.swift */; };
+		586AF1CF2438F5F500841147 /* CustomDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586AF1CE2438F5F500841147 /* CustomDetailCell.swift */; };
 		58DD474F243602CF00D2830B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD474E243602CF00D2830B /* AppDelegate.swift */; };
 		58DD4751243602CF00D2830B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD4750243602CF00D2830B /* SceneDelegate.swift */; };
 		58DD4756243602CF00D2830B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58DD4754243602CF00D2830B /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		583C164324365FE60005A8EF /* CustomCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCharacterCell.swift; sourceTree = "<group>"; };
+		586AF1CE2438F5F500841147 /* CustomDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDetailCell.swift; sourceTree = "<group>"; };
 		58DD474B243602CF00D2830B /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DD474E243602CF00D2830B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58DD4750243602CF00D2830B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				58DD4754243602CF00D2830B /* Main.storyboard */,
 				58DD4759243602D700D2830B /* LaunchScreen.storyboard */,
 				583C164324365FE60005A8EF /* CustomCharacterCell.swift */,
+				586AF1CE2438F5F500841147 /* CustomDetailCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				58DD47692436082400D2830B /* Character.swift in Sources */,
 				583C164424365FE60005A8EF /* CustomCharacterCell.swift in Sources */,
 				58DD476D243649F400D2830B /* DetailsViewController.swift in Sources */,
+				586AF1CF2438F5F500841147 /* CustomDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

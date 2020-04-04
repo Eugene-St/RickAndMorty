@@ -30,7 +30,7 @@ class CharactersListTableViewController: UITableViewController {
     }
   }
   
-  // MARK: - Table view data source
+  // MARK: - TableView DataSource
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     character?.results.count ?? 0
   }

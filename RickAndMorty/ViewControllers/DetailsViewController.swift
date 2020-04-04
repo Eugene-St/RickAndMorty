@@ -27,25 +27,15 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
     title = character.name
   }
   
-  // MARK: - Table view data source
+  // MARK: - TableView DataSource
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     character.propertyNames().count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! CustomDetailCell
     
-    let property = character.propertyNames()[indexPath.row]
-    
-    switch property {
-    case "name"    : cell.textLabel?.text = "Name - \(character.name)"
-    case "status"  : cell.textLabel?.text = "Status - \(character.status)"
-    case "species" : cell.textLabel?.text = "Species - \(character.species)"
-    case "gender"  : cell.textLabel?.text = "Gender - \(character.gender)"
-    case "origin"  : cell.textLabel?.text = "Origin - \(character.origin.name)"
-    case "location": cell.textLabel?.text = "Location - \(character.location.name)"
-    default: cell.textLabel?.text = ""
-    }
+    cell.configureCell(with: character, and: indexPath)
     
     return cell
   }
