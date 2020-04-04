@@ -10,19 +10,18 @@ import UIKit
 
 class CustomCharacterCell: UITableViewCell {
   
+  // MARK: - IBOutlets
   @IBOutlet weak var characterTextLabel: UILabel!
   @IBOutlet weak var imageLabel: UIImageView! {
     didSet {
-      imageLabel.contentMode = .scaleAspectFit
-      imageLabel.clipsToBounds = true
       imageLabel.layer.cornerRadius = imageLabel.bounds.height / 2
-      imageLabel.backgroundColor = .black
     }
   }
   
+  // MARK: - Public methods
   func configureCell(with result: Result?) {
-    guard let textLabel = result?.name else { return }
-    characterTextLabel.text = textLabel
+    characterTextLabel.text = result?.name
+    self.imageLabel.image = nil
     
     DispatchQueue.global().async {
       guard let stringURL = result?.image else { return }

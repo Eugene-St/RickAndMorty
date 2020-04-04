@@ -10,18 +10,14 @@ import UIKit
 
 class CharactersListTableViewController: UITableViewController {
   
-  // MARK: - IB Outlets
-  @IBOutlet weak var sortLabel: UIBarButtonItem!
-  
+  // MARK: - IBOutlets
+  @IBOutlet weak var sortLabelButton: UIBarButtonItem!
   
   // MARK: - Private properties
   private var character: Character?
+  private var ascendingSorting = true
   
-  // MARK: - Public properties
-  
-  var ascendingSorting = true
-  
-  // MARK: - UIViewContrroller methods
+  // MARK: - UIViewController methods
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.rowHeight = 60
@@ -36,7 +32,7 @@ class CharactersListTableViewController: UITableViewController {
   
   // MARK: - Table view data source
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return character?.results.count ?? 0
+    character?.results.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,18 +43,25 @@ class CharactersListTableViewController: UITableViewController {
   }
   
   // MARK: - IBactions
-  
-  // Logic to sort items in asscending/descending mode
+  // Logic to sort items in asscending/descending order
   @IBAction func sortItems() {
     if ascendingSorting {
       character?.results.sort(by: >)
-      sortLabel.image = UIImage(systemName: "arrow.up")
+//      sortLabelButton.image = UIImage(systemName: "arrow.up")
       ascendingSorting.toggle()
     } else {
       character?.results.sort(by: <)
-      sortLabel.image = UIImage(systemName: "arrow.down")
+//      sortLabelButton.image = UIImage(systemName: "arrow.down")
       ascendingSorting.toggle()
     }
     tableView.reloadData()
+  }
+  
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let detailsVC = segue.destination as! DetailsViewController
+    guard let indexPath = tableView.indexPathForSelectedRow else { return }
+    let result = character?.results[indexPath.row]
+    detailsVC.character = result
   }
 }
