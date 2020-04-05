@@ -1,5 +1,5 @@
 //
-//  CustomDetailCell.swift
+//  DetailViewCell.swift
 //  RickAndMorty
 //
 //  Created by Eugene St on 04.04.2020.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CustomDetailCell: UITableViewCell {
-
+class DetailViewCell: UITableViewCell {
+  
   // MARK: - IBOutlets
   @IBOutlet weak var characterLabel: UILabel!
   

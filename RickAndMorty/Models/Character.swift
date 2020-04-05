@@ -5,7 +5,6 @@
 //  Created by Eugene St on 02.04.2020.
 //  Copyright © 2020 Eugene St. All rights reserved.
 //
-
 protocol PropertyNames {
   func propertyNames() -> [String]
 }
@@ -23,7 +22,7 @@ struct Result: Comparable, Decodable, PropertyNames {
   static func < (lhs: Result, rhs: Result) -> Bool {
     lhs.name < rhs.name
   }
-  
+
   let name: String
   let status: String
   let species: String
