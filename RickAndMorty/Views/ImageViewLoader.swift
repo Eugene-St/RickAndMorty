@@ -8,30 +8,29 @@
 
 import UIKit
 
+// MARK: - Private properties
 private let imageCache = NSCache<AnyObject, AnyObject>()
 
 class ImageViewLoader: UIImageView {
   
+  // MARK: - Public properties
   var imageURL: URL?
-  
   let activityIndicator = UIActivityIndicatorView()
   
+  // MARK: - Public methods
   func loadImageWithUrl(_ url: URL) {
     
-    // setup activityIndicator
+    // Setup activityIndicator
     activityIndicator.color = .darkGray
-    
     addSubview(activityIndicator)
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    
     imageURL = url
-    
     image = nil
     activityIndicator.startAnimating()
     
-    // retrieve image if already available in cache
+    // Retrieve image if already available in cache
     if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
       
       self.image = imageFromCache
@@ -51,9 +50,7 @@ class ImageViewLoader: UIImageView {
       }
       
       DispatchQueue.main.async(execute: {
-        
         if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
-          
           if self.imageURL == url {
             self.image = imageToCache
           }
