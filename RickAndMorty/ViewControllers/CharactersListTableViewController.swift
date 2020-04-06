@@ -29,9 +29,11 @@ class CharactersListTableViewController: UITableViewController {
   // MARK: - UIViewController methods
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     setupSearchController()
     setupNavigationBar()
-    tableView.rowHeight = 60
+    tableView.estimatedRowHeight = 60
+    tableView.rowHeight = UITableView.automaticDimension
     
     NetworkManager.shared.fetchData { results in
       DispatchQueue.main.async {
@@ -47,6 +49,7 @@ class CharactersListTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! CharacterCell
+    cell.characterTextLabel.sizeToFit()
     if let result = isFiltering ? filteredChracter[indexPath.row] : results?[indexPath.row] {
       cell.configureCell(with: result)
     }
@@ -55,6 +58,10 @@ class CharactersListTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    UITableView.automaticDimension
   }
   
   // MARK: - IBactions
